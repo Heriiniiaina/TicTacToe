@@ -8,6 +8,13 @@ function App() {
   const [state,setState] = useState(Array(9).fill(null))
   const [current,setCurrent] = useState("X")
   console.log(state)
+  const checkNull = (state:any[])=>{
+      for(let i:number=0;i<state.length;i++){
+        if(state[i]==null)
+          return false
+      }
+      return true
+  }
   const checkWin = (state:any[])=>{
     const win = [
       [0,1,2],
@@ -32,7 +39,9 @@ function App() {
     stateCopy[index] = current
     await setState(stateCopy)
     const win  = checkWin(stateCopy)
-    
+    const nulls = checkNull(stateCopy)
+    if(nulls)
+      alert("Match null")
     if(win){
       alert(`${current} win the game`)
     }
