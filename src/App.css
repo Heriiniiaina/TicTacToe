@@ -20,7 +20,7 @@ body{
 .row{
   display: flex;
 }
-.tictact{
+.tictac{
   display: flex;
   flex-direction: column;
   align-items: center;

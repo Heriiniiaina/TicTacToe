@@ -106,12 +106,12 @@ function App() {
     if (winner) {
       setGameOver(true);
       setTimeout(() => {
-        alert(`L'ordinateur (${winner}) gagne la partie !`);
+        alert(winner=="X" ? "Vous (X) avez gagné ":"L'ordinateur (O) a gagné");
       }, 100);
     } else if (checkDraw(state)) {
       setGameOver(true);
       setTimeout(() => {
-        alert("Match nul !");
+        alert("Match null");
       }, 100);
     } else if (current === "O" && !gameOver) {
       
@@ -124,8 +124,10 @@ function App() {
   return (
     <>
       <div className='tictac'>
+      <h2>TIC TAC TOE GAME</h2>
         <div>
-          <h2>{current === "X" ? "C'est votre tour (X)" : "C'est le tour de l'ordinateur (O)"}</h2>
+          
+          <h3>{current === "X" ? "Votre tour(X)" : "Tour de l'ordinateur (O)"}</h3>
         </div>
         <div className='board'>
           <div className="row">
