@@ -79,13 +79,13 @@ function App() {
   };
 
   const handleClick = (index: number): void => {
-    // Ne pas permettre de jouer si c'est le tour de l'ordinateur ou si le jeu est terminé
+    
     if (state[index] !== null || gameOver || current === "O") return;
 
     const boardCopy = [...state];
     boardCopy[index] = "X";
     setState(boardCopy);
-    setCurrent("O"); // Passer le tour à l'ordinateur ici
+    setCurrent("O");
   };
 
   useEffect(() => {
@@ -96,7 +96,7 @@ function App() {
           const boardCopy = [...state];
           boardCopy[aiMove] = "O";
           setState(boardCopy);
-        }, 1000); // Délai avant que l'ordinateur joue
+        }, 1000);
       }
     }
   }, [current, state, gameOver]);
@@ -114,10 +114,10 @@ function App() {
         alert("Match nul !");
       }, 100);
     } else if (current === "O" && !gameOver) {
-      // Changer le tour au joueur après que l'ordinateur a joué
+      
       setTimeout(() => {
         setCurrent("X");
-      }, 500); // Délai avant que le tour revienne au joueur
+      }, 1000); 
     }
   }, [state, current, gameOver]);
 
